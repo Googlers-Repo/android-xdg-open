@@ -1,1 +1,0 @@
-xdg-open for Android
