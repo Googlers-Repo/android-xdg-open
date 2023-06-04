@@ -1,4 +1,4 @@
-#include <MimeType.h>
+#include <MimeType.hpp>
 
 const char* MimeTypes::getType(const char * extension)  {
   const char *dot = strrchr(extension, '.');
@@ -67,7 +67,7 @@ int MimeTypes::strcmpi(const char *s1, const char *s2) {
 }
 
 // Source: https://raw.githubusercontent.com/broofa/node-mime/master/types/standard.json
-MimeTypes::entry MimeTypes::types[347] =  {
+MimeTypes::entry MimeTypes::types[354] =  {
   {"*3gpp", "audio/3gpp"},
   {"*jpm", "video/jpm"},
   {"*mp3", "audio/mp3"},
@@ -111,6 +111,9 @@ MimeTypes::entry MimeTypes::types[347] =  {
   {"cu", "application/cu-seeme"},
   {"davmount", "application/davmount+xml"},
   {"dbk", "application/docbook+xml"},
+  {"db", "application/x-sqlite3"},
+  {"db-wal", "application/x-sqlite3"},
+  {"db-shm", "application/x-sqlite3"},
   {"deb", "application/octet-stream"},
   {"def", "text/plain"},
   {"deploy", "application/octet-stream"},
@@ -344,6 +347,10 @@ MimeTypes::entry MimeTypes::types[347] =  {
   {"stylus", "text/stylus"},
   {"svg", "image/svg+xml"},
   {"svgz", "image/svg+xml"},
+  {"sqlite", "application/x-sqlite3"},
+  {"sqlite3", "application/x-sqlite3"},
+  {"sqlite-wal", "application/x-sqlite3"},
+  {"sqlite-shm", "application/x-sqlite3"},
   {"t", "text/troff"},
   {"t38", "image/t38"},
   {"tei", "application/tei+xml"},

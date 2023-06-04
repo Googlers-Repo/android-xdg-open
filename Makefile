@@ -1,5 +1,6 @@
-LDFLAGS += -lOpenSLES
+# LDFLAGS += -lOpenSLES
 PREFIX ?= /usr/local
+VPATH=$(PWD)/src
 CXXFLAGS += \
 	-fPIC \
 	-Wall \
@@ -8,17 +9,21 @@ CXXFLAGS += \
 	-O3 \
 	-fno-omit-frame-pointer \
 	-pie \
-	-I/$(PWD)/include
+	-I$(PWD)/include
 
-open: open.cpp MimeType.cpp
+all: xdg-open xdg-mime
+
+xdg-open: $(PWD)/src/xdg-open.cpp $(PWD)/src/MimeType.cpp
+xdg-mime: $(PWD)/src/xdg-mime.cpp $(PWD)/src/MimeType.cpp
 
 clean:
-	rm -f open
+	rm -f xdg-open xdg-mime
 
-install: open
-	install open $(DESTDIR)$(PREFIX)/bin/open
+install: xdg-open xdg-mime
+	install xdg-open $(DESTDIR)$(PREFIX)/bin/xdg-open
+	install xdg-mime $(DESTDIR)$(PREFIX)/bin/xdg-mime
 
 uninstall:
-	rm -f $(PREFIX)/bin/open
+	rm -f $(PREFIX)/bin/xdg-open $(PREFIX)/bin/xdg-mime
 
 .PHONY: clean install uninstall
